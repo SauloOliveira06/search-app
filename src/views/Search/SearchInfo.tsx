@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Container } from 'components';
 import InfoTable from 'views/InfoTable/InfoTable';
 import {
@@ -10,6 +11,13 @@ import {
 } from "./styles";
 
 const SearchInfo = () => {
+
+    let navigate = useNavigate();
+
+    const handleChange = (value: string) => {
+        navigate(`/${value}`);
+    }
+
     return (
         <>
             <Container>
@@ -18,10 +26,10 @@ const SearchInfo = () => {
                         <SearchText>
                             <input type="text" placeholder="procurar texto..." required />
                         </SearchText>
-                        <SelectFilter>
+                        <SelectFilter onChange={(event) => handleChange(event.target.value)}>
                             <option>Formato</option>
                             <option value="list">Lista</option>
-                            <option value="grid">Grid</option>
+                            <option value="cards">Grid</option>
                         </SelectFilter>
                         <ButtonSubmit>
                             APLICAR

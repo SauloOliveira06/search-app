@@ -4,7 +4,7 @@ const NavbarComponent = () => {
     return (
         <>
             <Navbar>
-                <LogoLink to="/" />
+                <LogoLink to="/list" />
             </Navbar>
         </>
     )

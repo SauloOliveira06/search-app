@@ -8,12 +8,19 @@ Basta realizar o clone do projeto em sua máquina e executar na raiz do projeto 
 
 ## O que consta no projeto
 
-React
-Typescript
-Recoil
-Material UI
-Styled Component
-axios
-react router dom
+> React
+
+> Typescript
+
+> Recoil
+
+> Material UI
+
+> Styled Component
+
+> Axios
+
+> React router dom
+
 
 

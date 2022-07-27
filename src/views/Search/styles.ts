@@ -74,12 +74,13 @@ const ButtonSubmit = styled.button`
   }
 `;
 
-const ButtonClear = styled.div`
+const ButtonClear = styled.button`
   display: inline-block;
   padding: 0.65em 1.3em;
   font-size: 1rem;
   font-weight: 600;
   color: #3f1061;
+  border: none;
   background: transparent;
   transition: .3s;
   cursor: pointer;

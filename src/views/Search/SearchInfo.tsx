@@ -11,7 +11,7 @@ import {
 } from "./styles";
 
 const SearchInfo = () => {
-
+    
     let navigate = useNavigate();
 
     const handleChange = (value: string) => {

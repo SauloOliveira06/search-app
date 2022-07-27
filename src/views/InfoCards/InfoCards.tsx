@@ -18,7 +18,7 @@ const InfoCards = () => {
     const dataCards = useRecoilValue(searchQuery);
     const [searchInput, setSearchInput] = useState('');
     const [filter, setFilter] = useState([]);
-    console.log(filter)
+
     let navigate = useNavigate();
 
     const handleChange = (value: string) => {
@@ -28,21 +28,17 @@ const InfoCards = () => {
     const searchItems = (searchInput: any) => {
         setSearchInput(searchInput);
         if (searchInput !== '') {
-            const filterData = dataCards.filter((items: string) => {
+            const filterData = dataCards.map((items: string) => {
                 return Object.values(items)
                     .join('')
                     .toLowerCase()
                     .includes(searchInput.toString())
             })
-            setFilter(filterData)
+            setFilter(filterData);
         } else {
             setFilter(dataCards);
         }
     }
-
-    // const handleSubmit = () => {
-    //     // setFilter(searchItems)
-    // }
 
     const filterCards = dataCards.filter((items: string) => {
         return Object.values(items)
@@ -53,7 +49,19 @@ const InfoCards = () => {
 
     const handleSubmit = (event: { preventDefault: () => void; }) => {
         event.preventDefault();
-        // alert(`The name you entered was: ${searchInput}`)
+        setSearchInput(searchInput)
+        const filterData = dataCards.filter((items: string) => {
+            return Object.values(items)
+                .join('')
+                .toLowerCase()
+                .includes(searchInput.toString())
+        })
+        setFilter(filterData)
+        alert(`valor buscado: ${searchInput}`)
+    }
+
+    const resetButton = () => {
+        setFilter(dataCards);
     }
 
     return (
@@ -74,11 +82,10 @@ const InfoCards = () => {
                             <option value="list">Lista</option>
                             <option value="cards">Grid</option>
                         </SelectFilter>
-                        {/* <ButtonSubmit value={filter} onClick={(e) => searchItems(e.currentTarget.value)}> */}
                         <ButtonSubmit type="submit">
                             APLICAR
                         </ButtonSubmit>
-                        <ButtonClear>
+                        <ButtonClear type="reset" onClick={resetButton}>
                             LIMPAR
                         </ButtonClear>
                     </form>
